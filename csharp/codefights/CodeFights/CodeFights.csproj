@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arcade\EdgeOfTheOcean.cs" />
+    <Compile Include="Arcade\SmoothSailing.cs" />
     <Compile Include="Arcade\TheJourneyBegins.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
