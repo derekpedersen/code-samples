@@ -136,5 +136,65 @@ namespace CodeFights.Arcade
             return (firstHalf == secondHalf);
         }
 
+        /// <summary>
+        /// Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        int[] sortByHeight(int[] a)
+        {
+            int[] result = new int[a.Length];
+            Array.Copy(a, 0, result, 0, a.Length);
+            Array.Sort(a);
+            int count = a.Where(i => i == -1).Count();
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (result[i] != -1)
+                {
+                    result[i] = a[count];
+                    count++;
+                }
+            }
+            return result;
+        }
+
+        public string reverseParentheses(string s)
+        {
+            while (String.IsNullOrEmpty(s) == false && s.IndexOf(')') > 0)
+            {
+                int count = 0;
+                string s1 = "";
+                int m = s.LastIndexOf('(');
+
+                for (int i = m; i < s.Length; i++)
+                {
+                    if (s[i] != ')')
+                    {
+                        count += 1;
+                    }
+                    else break;
+                }
+
+                s1 = s.Substring(m, count + 1);
+                s1 = reverseString(s1);
+
+                for (int i = 0; i < s1.Length; i++)
+                {
+                    if (s1[i] == '(' || s1[i] == ')') s1 = s1.Remove(i, 1);
+                }
+
+                s = s.Remove(m, count + 1);
+                s = s.Insert(m, s1);
+            }
+            return s;
+        }
+
+        string reverseString(string s)
+        {
+            var charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+
+            return new string(charArray);
+        }
     }
 }
