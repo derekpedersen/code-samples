@@ -113,3 +113,32 @@ func Test_ChapterOne_Four(t *testing.T) {
 		}
 	}
 }
+
+// 1.5
+// implement a method to perform a basic string compression using the counts of repeated characters
+func Test_ChapterOne_Five(t *testing.T) {
+	testTable := []struct {
+		Val    string
+		Result string
+	}{
+		{
+			Val:    "aaaa",
+			Result: "a4",
+		},
+		{
+			Val:    "aaabbccccdd",
+			Result: "a3b2c4d2",
+		},
+		{
+			Val:    "a",
+			Result: "a", // as a1 is longer than just a so no need to compress
+		},
+	}
+
+	for _, v := range testTable {
+		result := chapter_one.CompressString(v.Val)
+		if result != v.Result {
+			t.Errorf("expected %v but got %v for string %v", v.Result, result, v.Val)
+		}
+	}
+}
