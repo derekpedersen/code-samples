@@ -55,3 +55,19 @@ func ArePermutations(one string, two string) bool {
 
 	return true
 }
+
+// 1.4
+// write a method to replace all spaces with `%20`
+func EncodeSpaces(val string) string {
+	encoded := []rune(`%20`)
+	result := []rune{}
+	for _, v := range val {
+		if v == ' ' {
+			result = append(result, encoded...)
+		} else {
+			result = append(result, v)
+		}
+	}
+
+	return string(result)
+}

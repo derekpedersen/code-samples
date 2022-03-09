@@ -88,3 +88,28 @@ func Test_ChapterOne_Three(t *testing.T) {
 		}
 	}
 }
+
+// 1.4
+// write a method to replace all spaces with `%20`
+func Test_ChapterOne_Four(t *testing.T) {
+	testTable := []struct {
+		Val    string
+		Result string
+	}{
+		{
+			Val:    "as df",
+			Result: "as%20df",
+		},
+		{
+			Val:    "derek the great",
+			Result: "derek%20the%20great",
+		},
+	}
+
+	for _, v := range testTable {
+		result := chapter_one.EncodeSpaces(v.Val)
+		if result != v.Result {
+			t.Errorf("expected %v but got %v for string %v", v.Result, result, v.Val)
+		}
+	}
+}
