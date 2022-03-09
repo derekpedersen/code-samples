@@ -142,3 +142,12 @@ func Test_ChapterOne_Five(t *testing.T) {
 		}
 	}
 }
+
+// 1.6
+// given an image represented by an NxN matrix where each pixel in teh image is 4 bytes write a method to rotate the image by 90 degrees
+
+// 1.7
+// write an algorithm such taht if an element in an NxN matrix is 0 its entire row and column are set to 0
+
+// 1.8
+// assume you have a method isSubstring which checks if one worse is a substring of another. given s1 and s2 write code to check if s2 is a rotation of s1 using only one call to isSubstring
